@@ -1,0 +1,6 @@
+# MatricMulDistributed
+
+This program computes the product of two n by n matrixes a and b, a X b, by implementing the  distributed algorithm to compute matrix multiplication by blocks using p computers to a structure of circular pipeline parallelism. In the implementation, the computation of Phase 1 can be carried out by an initiator process that accepts two matrixes a and b and convert them into a’ and b’ locally. Process Initiator will then send the blocks of a’ and b’ to p computers. Every computer hosts process Worker that has three m by m matrixes ak’, bk’ and ck, where m =n/√P, k = 1, 2, …, p. In Phase 2, processes Workerk communicate with each other and carry out matrix shifting. Other TCP-based communication mechanisms can be accepted upon approval.
+The program is configurable with respect to n and p.
+
+In the basic version, p is a perfect square number so that p is an integer, and n is a multiple of p . Therefore, m =n/√P is an integer, too. In reality, n is determined by the actual problem and very likely n is not a multiple of √P . This program is cabable to wisely distribute blocks with variable sizes to p computers. Furthermore, p is determined by the availability of computers; it is possible that p is not a perfect square number but p = r . c also Capable to form a r by c grid using r . c computers.
